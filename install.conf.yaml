@@ -10,5 +10,9 @@
 
 - create:
     - ~/dev
-    - ~/test-folder/within
-# - shell:
+
+- shell:
+    - command: ./homebrew_install.zsh
+      stdin: true
+      stdout: true
+      stderr: true

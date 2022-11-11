@@ -6,6 +6,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Syntax highlighting for man pages using bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# Homebrew cask options
+export HOMEBREW_CASK_OPTS="--no-quarantine"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -187,9 +193,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Aliases
-alias ls='ls -G'
-alias l='ls -lFh' # size, show type, human readable
-alias la='ls -lFAh'
+alias ls='exa -laFh --git --icons'
 alias src='source ~/.zshrc' # reload
 alias zshconfig="code ~/.zshrc"
 
