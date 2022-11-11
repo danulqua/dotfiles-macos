@@ -6,6 +6,7 @@
 
 - link:
     ~/.zshrc:
+    ~/.gitconfig:
 
 - create:
     - ~/dev
