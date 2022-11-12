@@ -7,6 +7,11 @@
 - link:
     ~/.zshrc:
     ~/.gitconfig:
+    ~/.config/starship.toml:
+      create: true
+      path: config/starship.toml
+    ~/.config/bat:
+      path: config/bat
 
 - create:
     - ~/dev
