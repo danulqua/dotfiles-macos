@@ -192,9 +192,10 @@ source $ZSH/oh-my-zsh.sh
 #
 # Aliases
 alias zshconfig="code ~/.zshrc" # open zshrc in vscode
-alias ls='exa -laFh --git --icons' # modern ls with exa
-alias src='source ~/.zshrc' # reload
+alias ls="exa -laFh --git --icons" # modern ls with exa
+alias src="source ~/.zshrc" # reload
 alias man=batman # man pages syntax highlighting
+alias bbd="brew bundle dump --force --describe"
 
 # Functions
 # Create a directory and cd into it
@@ -208,3 +209,4 @@ eval $(thefuck --alias)
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
