@@ -203,9 +203,23 @@ function mkcd() {
 export HOMEBREW_CASK_OPTS="--no-quarantine"
 export NULLCMD=bat
 
+# Starship
 eval "$(starship init zsh)"
+
+# Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# The Fuck
 eval $(thefuck --alias)
+
+# Path variables
+typeset -U path
+
+path=(
+  "new"
+  $path
+  "something"
+)
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
