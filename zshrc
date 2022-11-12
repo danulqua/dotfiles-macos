@@ -9,6 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Homebrew cask options
 export HOMEBREW_CASK_OPTS="--no-quarantine"
+export NULLCMD=bat
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -157,7 +158,6 @@ ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
   git-open
   zsh-syntax-highlighting
   copyfile
@@ -191,11 +191,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Aliases
-alias zshconfig="code ~/.zshrc" # open zshrc in vscode
-alias ls="exa -laFh --git --icons" # modern ls with exa
-alias src="source ~/.zshrc" # reload
+alias zshconfig='code ~/.zshrc' # open zshrc in vscode
+alias ls='exa -laFh --git --icons' # modern ls with exa
+alias src='source ~/.zshrc' # reload
 alias man=batman # man pages syntax highlighting
-alias bbd="brew bundle dump --force --describe"
+alias bbd='brew bundle dump --force --describe'
+alias trail='<<<${(F)path}'
 
 # Functions
 # Create a directory and cd into it
