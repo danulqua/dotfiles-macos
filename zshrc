@@ -6,8 +6,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Syntax highlighting for man pages using bat
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Homebrew cask options
 export HOMEBREW_CASK_OPTS="--no-quarantine"
@@ -193,9 +191,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Aliases
-alias ls='exa -laFh --git --icons'
+alias zshconfig="code ~/.zshrc" # open zshrc in vscode
+alias ls='exa -laFh --git --icons' # modern ls with exa
 alias src='source ~/.zshrc' # reload
-alias zshconfig="code ~/.zshrc"
+alias man=batman # man pages syntax highlighting
 
 # Functions
 # Create a directory and cd into it
