@@ -21,6 +21,8 @@ brew "ripgrep"
 brew "starship"
 # Programmatically correct mistyped console commands
 brew "thefuck"
+# UNIX shell (command interpreter)
+brew "zsh"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
 # Blocks all Keyboard and TouchBar input

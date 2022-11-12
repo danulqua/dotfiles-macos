@@ -6,11 +6,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-
-# Homebrew cask options
-export HOMEBREW_CASK_OPTS="--no-quarantine"
-export NULLCMD=bat
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -203,6 +198,10 @@ alias trail='<<<${(F)path}'
 function mkcd() {
   mkdir -p $@ && cd $_;
 }
+
+# Homebrew cask options
+export HOMEBREW_CASK_OPTS="--no-quarantine"
+export NULLCMD=bat
 
 eval "$(starship init zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
