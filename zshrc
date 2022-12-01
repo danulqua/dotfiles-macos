@@ -192,6 +192,8 @@ alias src='source ~/.zshrc' # reload
 alias man=batman # man pages syntax highlighting
 alias bbd='brew bundle dump --force --describe'
 alias trail='<<<${(F)path}'
+alias python='python3'
+alias pip='pip3'
 
 # Functions
 # Create a directory and cd into it

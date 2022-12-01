@@ -25,15 +25,20 @@ brew "thefuck"
 brew "zsh"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
+# Utility to hide menu bar items
+cask "hiddenbar"
 # Blocks all Keyboard and TouchBar input
 cask "keyboardcleantool"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259
 mas "Boop", id: 1518425043
 mas "Color Picker", id: 1545870783
-mas "Dropover", id: 1355679052
+mas "Pixelmator Pro", id: 1289583905
 mas "Spark", id: 1176895641
 mas "The Unarchiver", id: 425424353
 mas "Trello", id: 1278508951
+mas "Vectornator", id: 1219074514
 mas "Velja", id: 1607635845
 mas "Xcode", id: 497799835
