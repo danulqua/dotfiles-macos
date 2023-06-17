@@ -14,6 +14,9 @@
       path: config/starship.toml
     ~/.config/bat:
       path: config/bat
+    ~/.config/kitty/kitty.conf:
+      create: true
+      path: config/kitty/kitty.conf
 
 - create:
     - ~/dev
