@@ -106,16 +106,22 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Aliases
-alias zshcfg='code ~/.zshrc' # open zshrc in vscode
+alias zshrc='code ~/.zshrc' # open zshrc in vscode
 alias ls='exa -aFh --git --icons' # modern ls with exa
+alias sl='exa -aFh --git --icons'
+alias l='exa -laFh --git --icons'
 alias ll='exa -laFh --git --icons'
 alias src='source ~/.zshrc' # reload
 alias man=batman # man pages syntax highlighting
 alias cat=bat # cat syntax highlighting
+alias c=clear
+alias d=docker
+alias dc=docker-compose
 alias bbd='brew bundle dump --force --describe'
 alias trail='<<<${(F)path}'
 alias python='python3'
 alias pip='pip3'
+alias rm=trash
 
 alias nr='npm run'
 alias ni="npm install"
@@ -124,6 +130,7 @@ alias nrs='npm run start'
 alias nrd='npm run dev'
 alias nrb='npm run build'
 alias nrt='npm run test'
+alias pn='pnpm'
 
 # Functions
 # Create a directory and cd into it
