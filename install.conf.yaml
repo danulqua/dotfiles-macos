@@ -8,13 +8,6 @@
     ~/.zshrc:
     ~/.zshenv:
     ~/.bashrc:
-    ~/.config/fish/completions:
-      path: config/fish/completions
-    ~/.config/fish/functions:
-      path: config/fish/functions
-    ~/.config/fish/config.fish:
-      create: true
-      path: config/fish/config.fish
     ~/.gitconfig:
     ~/.config/starship.toml:
       create: true

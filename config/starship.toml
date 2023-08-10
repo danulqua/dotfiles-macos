@@ -2,8 +2,8 @@
 style = "bold #FFCA80"
 
 [character]
-error_symbol = "[❯](bold #FF9580)"
-success_symbol = "[❯](bold #8AFF80)"
+error_symbol = "[➤](bold #FF9580)"
+success_symbol = "[➤](bold #8AFF80)"
 
 [cmd_duration]
 style = "bold #FFFF80"
@@ -23,3 +23,6 @@ style = "bold #9580FF"
 [username]
 format = "[$user]($style) on "
 style_user = "bold #80FFEA"
+
+[line_break]
+disabled = true
