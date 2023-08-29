@@ -18,6 +18,14 @@ echo "\n=== Setting up macOS settings ===\n"
 defaults write NSGlobalDomain AppleShowScrollBars -string Automatic
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
+# Jump to the spot that's clicked in the scrollbar
+defaults write -g AppleScrollerPagingBehavior -bool true
+# `true` for pages, `false` for moving to the spot that's clicked
+
+# Set dark theme
+defaults write -g AppleInterfaceStyle "Dark"
+# Possible values: `Dark`, `Light`, `Auto`
+
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
@@ -74,6 +82,9 @@ defaults write com.apple.menuextra.clock DateFormat -string "\"EEE d MMM HH:mm:s
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
+# Trackpad: increase tracking speed (via CLI can be set higher than via UI)
+defaults write -g com.apple.trackpad.scaling 2.5
+
 # Trackpad: set click weight
 defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 1
 # Possible values: `0` (light), `1` (medium), `3` (firm)
@@ -107,6 +118,10 @@ defaults write NSGlobalDomain AppleLanguages -array "en-US" "uk-UA"
 defaults write NSGlobalDomain AppleLocale -string "en_UA"
 # defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 # defaults write NSGlobalDomain AppleMetricUnits -bool true
+
+# Use the Caps Lock key to switch to and from U.S.
+defaults write NSGlobalDomain TISRomanSwitchState -int 1
+# Possible values: `0` - off, `1` - on
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone "Europe/Kyiv" > /dev/null
@@ -223,9 +238,9 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 # Increase grid spacing for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 70" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 70" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 70" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 50" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 50" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 50" ~/Library/Preferences/com.apple.finder.plist
 
 # Change the size of icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 70" ~/Library/Preferences/com.apple.finder.plist
@@ -511,6 +526,7 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ###############################################################################
 
 for app in "Activity Monitor" \
+	"cfprefsd" \
 	"Dock" \
 	"Finder" \
 	"Messages" \
