@@ -164,7 +164,7 @@ defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 28 "{ en
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 29 "{ enabled = 0; value = { parameters = (51, 20, 1441792); type = 'standard'; }; }"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 30 "{ enabled = 0; value = { parameters = (52, 21, 1179648); type = 'standard'; }; }"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 31 "{ enabled = 0; value = { parameters = (52, 21, 1441792); type = 'standard'; }; }"
-# Screenshots of the Touch Bar
+# Disable Touch Bar Screenshot shortcuts
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 181 "{ enabled = 0; value = { parameters = (54, 22, 1179648); type = 'standard'; }; }"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 182 "{ enabled = 0; value = { parameters = (54, 22, 1441792); type = 'standard'; }; }"
 
@@ -207,7 +207,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+# Save screenshots in JPG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "jpg"
 
 # Disable shadow in screenshots
@@ -227,7 +227,7 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 1
 # Finder                                                                      #
 ###############################################################################
 
-# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+# Finder: allow quitting via Cmd+Q; doing so will also hide desktop icons
 # defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: disable window animations and Get Info animations
@@ -554,14 +554,6 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 # Disable continuous spell checking
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
-
-
-
-# killall "Dock"
-# killall "SystemUIServer"
-# killall "Safari"
-# killall "Finder"
-# killall "Activity Monitor"
 
 ###############################################################################
 # Kill affected applications                                                  #
