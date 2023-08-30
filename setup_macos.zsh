@@ -8,6 +8,10 @@ sudo -v
 # Close any preferences so settings are not overwritten.
 osascript -e 'tell application "System Preferences" to quit'
 
+BACKUP_LOCATION="${HOME}/Desktop/macos-defaults-backup.txt"
+echo "Backing up macOS defaults to ${BACKUP_LOCATION}"
+defaults read > "${BACKUP_LOCATION}"
+
 echo "\n=== Setting up macOS settings ===\n"
 
 ###############################################################################
@@ -49,25 +53,14 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Disable Resume system-wide
 defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
-# Disable the crash reporter
-# defaults write com.apple.CrashReporter DialogType -string "none"
-
 # Set Help Viewer windows to non-floating mode
 defaults write com.apple.helpviewer DevMode -bool true
 
-# Disable automatic capitalization as it’s annoying when typing code
+# Disable automatic text substitution and autocorrect
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-
-# Disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-# Disable automatic period substitution as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
-
-# Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
-# Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Set medium sidebar icon size
@@ -77,6 +70,9 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 # Set menu bar digital clock format
 defaults write com.apple.menuextra.clock DateFormat -string "\"EEE d MMM HH:mm:ss\""
 # Examples: `EEE d MMM HH:mm:ss` (Thu 18 Aug 21:46:18), `Thu 9:46:18` (EEE h:mm:ss), `EEE HH:mm:ss` (Thu 21:46:18)
+
+# Set the timezone; see `sudo systemsetup -listtimezones` for other values
+# sudo systemsetup -settimezone "Europe/Kyiv" > /dev/null
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -94,14 +90,7 @@ defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 1
 # defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Trackpad: map bottom right corner to right-click
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
-
-# Enable full keyboard access for all controls
-# (e.g. enable Tab in modal dialogs)
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Disable press-and-hold for keys in favor of key repeat
@@ -122,9 +111,6 @@ defaults write NSGlobalDomain AppleLocale -string "en_UA"
 # Use the Caps Lock key to switch to and from U.S.
 defaults write NSGlobalDomain TISRomanSwitchState -int 1
 # Possible values: `0` - off, `1` - on
-
-# Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Kyiv" > /dev/null
 
 ###############################################################################
 # Keyboard shortcuts                                                          #
@@ -168,33 +154,12 @@ defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 31 "{ en
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 181 "{ enabled = 0; value = { parameters = (54, 22, 1179648); type = 'standard'; }; }"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 182 "{ enabled = 0; value = { parameters = (54, 22, 1441792); type = 'standard'; }; }"
 
-###############################################################################
-# Energy saving                                                               #
-###############################################################################
-
-# Enable lid wakeup
-sudo pmset -a lidwake 1
-
-# Restart automatically on power loss
-# sudo pmset -a autorestart 1
-
-# Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
-
-# Sleep the display after 10 minutes
-sudo pmset -a displaysleep 10
-
-# Disable machine sleep while charging
-# sudo pmset -c sleep 0
-
-# Set machine sleep to 5 minutes on battery
-sudo pmset -b sleep 5
-
-# Set standby delay to 24 hours (default is 1 hour)
-# sudo pmset -a standbydelay 86400
-
-# Never go into computer sleep mode
-# sudo systemsetup -setcomputersleep Off > /dev/null
+# Press Globe to Show Emoji & Symbols
+defaults write com.apple.HIToolbox AppleFNUsageType -int 2
+# Possible values: `0` - Do Nothing, `1` - Change Input Source, `2` - Show Emoji & Symbols, `3` - Start Dictation (Press Globe Twice)
+#
+# In case of `3` - enable auto-enabling dictation
+# defaults write com.apple.HIToolbox AppleDictationAutoEnable -int 1
 
 ###############################################################################
 # Screen                                                                      #
@@ -234,18 +199,21 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 1
 defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Set Desktop as the default location for new Finder windows
-# For other paths, use `PfLo` and `file:///full/path/here/`
+# For other paths, use `PfLo` and `file://full/path/here/`
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
-# defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-# defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: hide hidden files (toggle with Cmd+Shift+.)
 defaults write com.apple.finder AppleShowAllFiles -bool false
+
+# Prefer Finder tabs: Dock -> Prefer tabs when opening documents
+defaults write NSGlobalDomain AppleWindowTabbingMode -string "always"
 
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -297,7 +265,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlmv"
 # defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+chflags nohidden ~/Library
 
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
@@ -310,7 +278,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	Privileges -bool true
 
 ###############################################################################
-# Dock, Dashboard, and hot corners                                            #
+# Dock, Mission Control and hot corners                                       #
 ###############################################################################
 
 # Set Dock position to bottom
@@ -320,8 +288,8 @@ defaults write com.apple.dock orientation -string "bottom"
 # Enable highlight hover effect for the grid view of a stack (Dock)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-# Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+# Set the icon size of Dock items to 32 pixels
+defaults write com.apple.dock tilesize -int 32
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
@@ -516,6 +484,17 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 # Sort Activity Monitor results by CPU usage
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
+
+###############################################################################
+# TextEdit                                                                    #
+###############################################################################
+
+# Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+
+# Open and save files as UTF-8 in TextEdit
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 ###############################################################################
 # Mac App Store                                                               #
