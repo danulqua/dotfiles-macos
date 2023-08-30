@@ -12,7 +12,7 @@ BACKUP_LOCATION="${HOME}/Desktop/macos-defaults-backup.txt"
 echo "Backing up macOS defaults to ${BACKUP_LOCATION}"
 defaults read > "${BACKUP_LOCATION}"
 
-echo "\n=== Setting up macOS settings ===\n"
+echo "\n=== Setting up macOS ===\n"
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -116,43 +116,8 @@ defaults write NSGlobalDomain TISRomanSwitchState -int 1
 # Keyboard shortcuts                                                          #
 ###############################################################################
 
-# Disable Show Launchpad shortcut
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 160 "{ enabled = 0; value = { parameters = (65535, 65535, 0); type = 'standard'; }; }"
-
-# Disable Mission Control, Application windows and Notification Center shortcuts
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 163 "{ enabled = 0; value = { parameters = (65535, 65535, 0); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 32 "{ enabled = 0; value = { parameters = (65535, 126, 8650752); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 33 "{ enabled = 0; value = { parameters = (65535, 125, 8650752); type = 'standard'; }; }"
-
-# Switch to Desktop 1-10 using Ctrl+Option+Shift+Cmd+[1-0]
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 118 "{ enabled = 1; value = { parameters = (49, 18, 1966080); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 119 "{ enabled = 1; value = { parameters = (50, 19, 1966080); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 120 "{ enabled = 1; value = { parameters = (51, 20, 1966080); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 121 "{ enabled = 1; value = { parameters = (52, 21, 1966080); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 122 "{ enabled = 1; value = { parameters = (53, 23, 1966080); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 123 "{ enabled = 1; value = { parameters = (54, 22, 1966080); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 124 "{ enabled = 1; value = { parameters = (55, 26, 1966080); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 125 "{ enabled = 1; value = { parameters = (56, 28, 1966080); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 126 "{ enabled = 1; value = { parameters = (57, 25, 1966080); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 127 "{ enabled = 1; value = { parameters = (48, 29, 1966080); type = 'standard'; }; }"
-
-# Disable Input Sources shortcuts (in favor of switching via Caps Lock)
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "{ enabled = 0; value = { parameters = (32, 49, 1048576); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 "{ enabled = 0; value = { parameters = (32, 49, 786432); type = 'standard'; }; }"
-
-# Disable Spotlight shortcuts
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; value = { parameters = (32, 49, 1048576); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{ enabled = 0; value = { parameters = (65535, 49, 1572864); type = 'standard'; }; }"
-
-# Disable Sceenshots shortcuts
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 184 "{ enabled = 0; value = { parameters = (53, 23, 1179648); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 28 "{ enabled = 0; value = { parameters = (51, 20, 1179648); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 29 "{ enabled = 0; value = { parameters = (51, 20, 1441792); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 30 "{ enabled = 0; value = { parameters = (52, 21, 1179648); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 31 "{ enabled = 0; value = { parameters = (52, 21, 1441792); type = 'standard'; }; }"
-# Disable Touch Bar Screenshot shortcuts
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 181 "{ enabled = 0; value = { parameters = (54, 22, 1179648); type = 'standard'; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 182 "{ enabled = 0; value = { parameters = (54, 22, 1441792); type = 'standard'; }; }"
+# Change system shortcuts
+chmod +x ./macos_hotkeys.zsh && ./macos_hotkeys.zsh
 
 # Press Globe to Show Emoji & Symbols
 defaults write com.apple.HIToolbox AppleFNUsageType -int 2
