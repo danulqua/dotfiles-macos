@@ -151,6 +151,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # The Fuck
 eval $(thefuck --alias)
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # Path variables
 typeset -U path
 
@@ -160,4 +163,3 @@ typeset -U path
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
