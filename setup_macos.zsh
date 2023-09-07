@@ -197,6 +197,9 @@ defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # Possible values: "SCcf" (search the current folder), "SCsp" (use the previous search scope), "SCev" (search this Mac), 
 
+# Show all file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
@@ -223,7 +226,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 70" ~/Library/Preferences/com.apple.finder.plist
 
 # Use list view in all Finder windows by default
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlmv"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Possible values: `clmv` (column view), `Nlsv` (list view), `glyv` (gallery view), `icnv` (icon view)
 
 # Disable the warning before emptying the Trash
@@ -261,7 +264,7 @@ defaults write com.apple.dock mineffect -string "scale"
 # Possible values: `genie`, `scale`, `suck`
 
 # Minimize windows into their application’s icon
-defaults write com.apple.dock minimize-to-application -bool true
+# defaults write com.apple.dock minimize-to-application -bool true
 
 # Enable spring loading for all Dock items
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
