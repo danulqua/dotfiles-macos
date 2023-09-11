@@ -29,6 +29,10 @@
       stdin: true
       stdout: true
       stderr: true
+    - command: ./setup_node.zsh
+      stdin: true
+      stdout: true
+      stderr: true
     - command: ./setup_macos.zsh
       stdin: true
       stdout: true

@@ -24,8 +24,12 @@ brew "fzf"
 brew "gh"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Command-line benchmarking tool
+brew "hyperfine"
 # Mac App Store command-line interface
 brew "mas"
+# Manage multiple Node.js versions
+brew "nvm"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
 # Search tool like grep and The Silver Searcher
@@ -74,7 +78,6 @@ mas "Keynote", id: 409183694
 mas "Keystroke Pro", id: 1572206224
 mas "Photomator", id: 1444636541
 mas "Pixelmator Pro", id: 1289583905
-mas "Spark", id: 1176895641
 mas "Trello", id: 1278508951
 mas "Xcode", id: 497799835
 vscode "adpyke.codesnap"
