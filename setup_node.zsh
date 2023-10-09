@@ -7,8 +7,8 @@ if exists node; then
 else
   echo "Node doesn't exist. Installing Node."
   nvm install --lts
-  sudo chown -R 501:20 "$HOME/.npm"
   nvm install-latest-npm
+  sudo chown -R $(whoami) ~/.npm
 fi
 
 echo "\n=== Installing global packages. It requires sudo permissions, so you may be asked to enter a password ===\n"

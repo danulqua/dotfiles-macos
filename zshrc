@@ -168,3 +168,9 @@ typeset -U path
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+# bun completions
+[ -s "/opt/homebrew/share/zsh/site-functions/_bun" ] && source "/opt/homebrew/share/zsh/site-functions/_bun"
+
+# bun completions
+[ -s "/Users/danil0110/.bun/_bun" ] && source "/Users/danil0110/.bun/_bun"

@@ -68,7 +68,7 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 # Possible values: `1` (small), `2` (medium), `3` (large)
 
 # Set menu bar digital clock format
-defaults write com.apple.menuextra.clock DateFormat -string "\"EEE d MMM HH:mm:ss\""
+defaults write com.apple.menuextra.clock DateFormat -string "\"d MMM HH:mm\""
 # Examples: `EEE d MMM HH:mm:ss` (Thu 18 Aug 21:46:18), `Thu 9:46:18` (EEE h:mm:ss), `EEE HH:mm:ss` (Thu 21:46:18)
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
