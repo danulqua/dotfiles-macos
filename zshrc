@@ -118,14 +118,14 @@ alias l='exa -laFh --git --icons'
 alias ll='exa -laFh --git --icons'
 alias src='source ~/.zshrc' # reload
 alias man=batman # man pages syntax highlighting
-alias cat=bat # cat syntax highlighting
+alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo Dracula || echo GitHub)" # cat syntax highlighting
 alias c=clear
 alias d=docker
 alias dc=docker-compose
 alias bbd='brew bundle dump --force --describe'
 alias trail='<<<${(F)path}'
-alias python='python3'
-alias pip='pip3'
+# alias python='python3'
+# alias pip='pip3'
 alias rm=trash
 
 alias nr='npm run'
@@ -152,12 +152,6 @@ eval "$(starship init zsh)"
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# The Fuck
-eval $(thefuck --alias)
-
-# Zoxide
-eval "$(zoxide init zsh)"
 
 # Path variables
 typeset -U path
