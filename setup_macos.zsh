@@ -344,6 +344,13 @@ defaults write com.apple.dock wvous-br-corner -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0
 
 ###############################################################################
+# Feature Flags                                                               #
+###############################################################################
+
+# Disable CursorUIViewService that can cause the system freezing
+sudo defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist redesigned_text_cursor -dict-add Enabled -bool NO
+
+###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
 
