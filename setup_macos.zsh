@@ -195,7 +195,7 @@ defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true
 
 # When performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-# Possible values: "SCcf" (search the current folder), "SCsp" (use the previous search scope), "SCev" (search this Mac), 
+# Possible values: "SCcf" (search the current folder), "SCsp" (use the previous search scope), "SCev" (search this Mac),
 
 # Show all file extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true

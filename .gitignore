@@ -1,1 +1,4 @@
 Brewfile.lock.json
+
+not-symlinked/~/.config/karabiner/automatic_backups/
+not-symlinked/**/.DS_Store

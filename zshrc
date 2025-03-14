@@ -79,7 +79,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -118,7 +117,7 @@ alias l='exa -laFh --git --icons'
 alias ll='exa -laFh --git --icons'
 alias src='source ~/.zshrc' # reload
 alias man=batman # man pages syntax highlighting
-alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo Dracula || echo GitHub)" # cat syntax highlighting
+alias bat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo Dracula || echo GitHub)" # cat syntax highlighting
 alias c=clear
 alias d=docker
 alias dc=docker-compose
@@ -145,13 +144,20 @@ function mkcd() {
 
 # Homebrew cask options
 export HOMEBREW_CASK_OPTS="--no-quarantine"
+# export HOMEBREW_NO_AUTO_UPDATE=1
 export NULLCMD=bat
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Starship
 eval "$(starship init zsh)"
 
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
+# TheFuck
+eval $(thefuck --alias)
 
 # Path variables
 typeset -U path
@@ -167,4 +173,6 @@ typeset -U path
 [ -s "/opt/homebrew/share/zsh/site-functions/_bun" ] && source "/opt/homebrew/share/zsh/site-functions/_bun"
 
 # bun completions
-[ -s "/Users/danil0110/.bun/_bun" ] && source "/Users/danil0110/.bun/_bun"
+[ -s "/Users/danulqua/.bun/_bun" ] && source "/Users/danulqua/.bun/_bun"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

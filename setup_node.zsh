@@ -12,6 +12,6 @@ else
 fi
 
 echo "\n=== Installing global packages. It requires sudo permissions, so you may be asked to enter a password ===\n"
-sudo npm install -g ts-node pnpm bun @nestjs/cli
+sudo npm install -g ts-node pnpm
 
 echo "\n=== Done ===\n"
